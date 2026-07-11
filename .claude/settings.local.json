@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://api.github.com/repos/mozilla/pdf.js/releases/latest)",
+      "Bash(curl -s https://api.github.com/repos/mozilla/pdf.js/releases/tags/v4.0.379)",
+      "Bash(curl -sL -o pdfjs4-legacy.zip https://github.com/mozilla/pdf.js/releases/download/v4.0.379/pdfjs-4.0.379-legacy-dist.zip)",
+      "Bash(unzip -l pdfjs4-legacy.zip)",
+      "Bash(curl -s https://api.github.com/repos/mozilla/pdf.js/releases/tags/v3.11.174)",
+      "Bash(curl -sL -o pdfjs3-legacy.zip https://github.com/mozilla/pdf.js/releases/download/v3.11.174/pdfjs-3.11.174-legacy-dist.zip)",
+      "Bash(unzip -l pdfjs3-legacy.zip)",
+      "Bash(mkdir -p pdfjs3)",
+      "Bash(unzip -o -q pdfjs3-legacy.zip -d pdfjs3 build/pdf.js build/pdf.worker.js)",
+      "Bash(mkdir -p \"C:/Users/samya/Lore Extension/extension/libs\")",
+      "Bash(cp pdfjs3/build/pdf.js pdfjs3/build/pdf.worker.js \"C:/Users/samya/Lore Extension/extension/libs/\")",
+      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('manifest.json','utf8'\\)\\)\\)\")",
+      "Bash(rm -rf \"C:/Users/samya/AppData/Local/Temp/claude/C--Users-samya-Lore-Extension/fd6f49ab-d5fa-4740-a41b-250815659eca/scratchpad\"/pdfjs*)",
+      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('C:/Users/samya/Lore Extension/extension/manifest.json','utf8'\\)\\)\\)\")"
+    ]
+  }
+}

@@ -14,7 +14,15 @@
       "Bash(cp pdfjs3/build/pdf.js pdfjs3/build/pdf.worker.js \"C:/Users/samya/Lore Extension/extension/libs/\")",
       "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('manifest.json','utf8'\\)\\)\\)\")",
       "Bash(rm -rf \"C:/Users/samya/AppData/Local/Temp/claude/C--Users-samya-Lore-Extension/fd6f49ab-d5fa-4740-a41b-250815659eca/scratchpad\"/pdfjs*)",
-      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('C:/Users/samya/Lore Extension/extension/manifest.json','utf8'\\)\\)\\)\")"
+      "Bash(node -e \"console.log\\(JSON.parse\\(require\\('fs'\\).readFileSync\\('C:/Users/samya/Lore Extension/extension/manifest.json','utf8'\\)\\)\\)\")",
+      "Bash(grep -o \"HTMLCanvasElement\\\\|OffscreenCanvas\\\\|toDataURL\\\\|HTMLImageElement\\\\|instanceof.\\\\{0,30\\\\}\" worker.min.js)",
+      "Bash(grep -o \"getContext\\\\|toBlob\\\\|naturalWidth\\\\|readAsDataURL\\\\|createImageBitmap\\\\|getImageData\\\\|is-url\\\\|isURL\\\\|typeof.\\\\{0,20\\\\}Image\" tesseract.min.js worker.min.js)",
+      "Bash(curl -s \"https://unpkg.com/tesseract.js@7.0.0/src/worker-script/utils/getImage.js\")",
+      "Bash(curl -s \"https://unpkg.com/tesseract.js@7.0.0/\" -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -s \"https://data.jsdelivr.com/v1/packages/npm/tesseract.js@7.0.0\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/src/worker/browser/loadImage.js\")",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/src/constants/imageType.js\")"
     ]
   }
 }

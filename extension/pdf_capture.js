@@ -82,7 +82,7 @@ function startPdfCapture(tabId, url, title) {
       trySendNormal(tabId);
     })
     .catch(err => {
-      console.error("Lore PDF: text extraction failed —", err.message, url);
+      console.error("Lore PDF: text extraction failed —", err && err.message, url);
     });
 
   state.dwellTimer = setTimeout(() => {
@@ -95,23 +95,8 @@ function startPdfCapture(tabId, url, title) {
 // The tab's own PDF viewer already downloaded this file, but content
 // scripts can't reach into its rendering internals, and pdf.js can't run
 // directly in the service worker. So: make sure an offscreen document
-// exists, then ask it to fetch + parse the PDF and hand back the text.
-let offscreenReadyPromise = null;
-
-async function ensureOffscreenDocument() {
-  if (offscreenReadyPromise) return offscreenReadyPromise;
-
-  offscreenReadyPromise = chrome.offscreen.createDocument({
-    url: "offscreen.html",
-    reasons: ["DOM_PARSER"],
-    justification: "pdf.js needs a real document/window to parse PDF text; the service worker has neither"
-  }).catch(err => {
-    if (!String(err.message).includes("single offscreen")) throw err; // already exists — fine, reuse it
-  });
-
-  return offscreenReadyPromise;
-}
-
+// exists (see offscreen_manager.js, shared with image OCR), then ask it to
+// fetch + parse the PDF and hand back the text.
 async function extractPdfText(url) {
   await ensureOffscreenDocument();
 

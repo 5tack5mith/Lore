@@ -6,8 +6,10 @@
 <body>
   <!-- pdf.js needs a real document/window (not just a Worker/service-worker
        scope) to run in — that's the whole reason this offscreen document
-       exists. See offscreen.js. -->
+       exists. See offscreen.js. Tesseract.js is loaded here too, for the
+       scanned/image-only-PDF OCR fallback. -->
   <script src="libs/pdf.js"></script>
+  <script src="libs/tesseract/tesseract.min.js"></script>
   <script src="offscreen.js"></script>
 </body>
 </html>

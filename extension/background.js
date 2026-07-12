@@ -5,7 +5,12 @@ console.log("Lore background script loaded");
 // here instead. The actual pdf.js parsing happens in an offscreen document
 // (offscreen.html/offscreen.js) since pdf.js needs a real DOM that this
 // service worker doesn't have. See pdf_capture.js for details.
-importScripts("pdf_capture.js");
+//
+// Image OCR: image_ocr.js (content script) detects dwelled-on images and
+// asks image_ocr_bridge.js to actually fetch + OCR them, for the same
+// "needs a privileged context" reason as PDFs. Both share one offscreen
+// document via offscreen_manager.js.
+importScripts("offscreen_manager.js", "pdf_capture.js", "image_ocr_bridge.js");
 
 const PC_ENDPOINT = "http://localhost:8000/index/web"; // update with real PC IP later
 
